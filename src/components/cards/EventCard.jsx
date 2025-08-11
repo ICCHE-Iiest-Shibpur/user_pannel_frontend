@@ -1,6 +1,6 @@
 import Button from "../atoms/Button";
 
-const EventCard = ({ event,onClick }) => {
+const EventCard = ({ event }) => {
   return (
     <div className="relative w-full h-60  rounded overflow-hidden">
       <img
@@ -12,7 +12,7 @@ const EventCard = ({ event,onClick }) => {
         {event.title}
       </div>
 
-      <button className="absolute bottom-2 right-2 text-sm bg-[#FF7043] text-white px-2 py-0.5 rounded hover:bg-[#ff7043] transition-all duration-300 cursor-pointer"   onClick={onclick}>View Details</button>
+      <button className="absolute bottom-2 right-2 text-sm bg-[#FF7043] text-white px-2 py-0.5 rounded hover:bg-[#ff7043] transition-all duration-300 cursor-pointer"  >View Details</button>
 
     </div>
   );
