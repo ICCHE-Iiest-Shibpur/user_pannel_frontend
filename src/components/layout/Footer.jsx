@@ -1,7 +1,9 @@
+'use client';
 import React from "react";
 import Container from "./Container";
 import Link from "next/link";
 import Button from "../atoms/Button";
+import ScrollToTopButton from '../atoms/ScrollToTopButton';
 
 const Footer = () => {
   return (
@@ -14,7 +16,7 @@ const Footer = () => {
             If you want to be a part of ICCHE, please feel free to reach out
           </p>
           <p className="text-sm mt-2  w-[200px] text-center">
-            Slater Hall, IIEST Shibpur, Howrah, West Bengal
+           Lecture Hall Complex, IIEST Shibpur, Howrah, West Bengal
           </p>
         </div>
 
@@ -22,36 +24,12 @@ const Footer = () => {
         <div className="md:w-1/3 w-full text-center md:text-left">
           <p className="text-2xl font-bold mb-2">Quick Links</p>
           <ul className="text-gray-300 space-y-1.5 text-sm">
-            <li>
-              <Link href="/" className="hover:text-gray-400">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="hover:text-gray-400">
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="hover:text-gray-400">
-                Volunteers
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="hover:text-gray-400">
-                Students
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="hover:text-gray-400">
-                Alumni
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="hover:text-gray-400">
-                About us
-              </Link>
-            </li>
+            <li><Link href="/" className="hover:text-gray-400">Home</Link></li>
+            <li><Link href="/" className="hover:text-gray-400">Gallery</Link></li>
+            <li><Link href="/" className="hover:text-gray-400">Volunteers</Link></li>
+            <li><Link href="/" className="hover:text-gray-400">Students</Link></li>
+            <li><Link href="/" className="hover:text-gray-400">Alumni</Link></li>
+            <li><Link href="/" className="hover:text-gray-400">About us</Link></li>
           </ul>
         </div>
 
@@ -71,6 +49,9 @@ const Footer = () => {
             <Button text="Submit" className="w-full" />
           </form>
         </div>
+
+        {/* Scroll to Top Button */}
+        <ScrollToTopButton />
       </Container>
 
       <hr className="my-4 border-gray-600" />

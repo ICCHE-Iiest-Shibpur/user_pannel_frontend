@@ -2,13 +2,34 @@ import axios from "axios";
 import { GALLERY_API } from "../config/apiURL";
 
 
+const normalizeCategory = (rawTitle) => {
+  const lower = rawTitle.toLowerCase();
 
-export const getAllPhotos = async (category) => {
+  if (lower.includes("sports")) return "Sports Day";
+  if (lower.includes("cloth")) return "Cloth Donation";
+  if (lower.includes("republic")) return "Republic Day";
+  if (lower.includes("diwali")) return "Diwali";
+  if (lower.includes("independence")) return "Independence Day";
+  if (lower.includes("origami")) return "Origami";
+  if (lower.includes("drawing")) return "Drawing Competition";
+  if (lower.includes("holi")) return "Holi";
+  if (lower.includes("farewell")) return "Farewell";
+  if (lower.includes("sunday") || lower.includes("indoor")) return "Sunday Indoor Games";
+
+  return "Other";
+};
+
+export const getAllPhotos = async () => {
   try {
-    const params = category && category !== "All" ? { category } : {};
-    const response = await axios.get(`${GALLERY_API}/photos`, { params });
+    const response = await axios.get(`${GALLERY_API}/photos`);
     if (response.data?.success && Array.isArray(response.data.data)) {
-      return response.data.data;
+      return response.data.data.flatMap(item =>
+        item.photos.map(photo => ({
+          image: photo,
+          rawTitle: item.title,  // original backend title
+          title: normalizeCategory(item.title), // normalized for filtering
+        }))
+      );
     }
     return [];
   } catch (error) {
@@ -16,6 +37,7 @@ export const getAllPhotos = async (category) => {
     return [];
   }
 };
+
 
 export const getPhotoById = async (id) => {
   try {
