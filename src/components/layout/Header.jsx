@@ -5,13 +5,13 @@ import {
   FaPhoneAlt,
   FaFacebookF,
   FaInstagram,
-  FaTwitter,
   FaBars,
   FaTimes,
 } from "react-icons/fa";
 import Link from "next/link";
 import Button from "../atoms/Button";
 import { usePathname } from "next/navigation";
+import { FaLinkedin } from "react-icons/fa6";
 
 const Header = () => {
   const pathname = usePathname();
@@ -50,12 +50,15 @@ const Header = () => {
         <Container className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 gap-2">
           <div className="flex gap-2 items-center justify-center md:justify-start">
             <FaPhoneAlt className="text-xs" />
-            <p className="text-sm">+91 9999999999</p>
+            <p className="text-sm">+91 7081637908, +91 7413936203, +91 8670916134</p>
           </div>
           <div className="flex gap-4 justify-center md:justify-end">
-            <FaFacebookF className="cursor-pointer hover:text-gray-200 transition" />
-            <FaInstagram className="cursor-pointer hover:text-gray-200 transition" />
-            <FaTwitter className="cursor-pointer hover:text-gray-200 transition" />
+            <a href="https://www.instagram.com/icche.iiests/" target="_blank" rel="noopener noreferrer"> <FaInstagram className="cursor-pointer hover:text-gray-200 transition" /></a>
+            <a href="https://www.linkedin.com/company/icche-iiest/" target="_blank" rel="noopener noreferrer"> <FaLinkedin className="cursor-pointer hover:text-gray-200 transition" /></a>
+            <a href="https://www.facebook.com/icchesistac" target="_blank" rel="noopener noreferrer"> <FaFacebookF className="cursor-pointer hover:text-gray-200 transition" /></a>
+
+
+
           </div>
         </Container>
       </div>
